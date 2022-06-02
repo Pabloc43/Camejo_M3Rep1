@@ -81,9 +81,9 @@ function tuEdad(nacimiento){
 //tuEdad("2021-06-03")
 
 //Ejercicio 3 moment
-let fechaPersona = "2021-06-01"
-console.log(moment(fechaPersona, "YYYY-MM-DD").month(0).from(moment().month(0)))
-var years = moment().diff(fechaPersona, 'years');
-var days = moment().diff(fechaPersona, 'days');
-console.log(years, days)
+let fechaPersona = "2021-06-02"
 
+let fechaMoment = moment(fechaPersona, "YYYY-MM-DD");
+let years = moment().diff(fechaMoment, 'years', false);
+let days = moment().diff(fechaMoment.add(years, 'years'), 'days', false);
+console.log(years);
