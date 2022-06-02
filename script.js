@@ -1,4 +1,4 @@
-
+const moment = require('moment')
 
 //Ejercicio 1 JS 
 function fechaHoy(){
@@ -8,6 +8,10 @@ function fechaHoy(){
     return [fechaAnio, fechaMes, fechaDia].join('-')
 }
 //console.log(fechaHoy())
+
+//Ejercicio 1 moment
+//console.log(moment().format('YYYY-MM-DD'));
+
 
 
 //Ejercicio 2 JS NO VALIDO PARA ANIOS < 1000
@@ -49,8 +53,15 @@ fechaValida('31/10/2022');
 fechaValida('30/13/2022');
 */
 
+//Ejercicio 2 moment
+function validarFecha(fecha){
+    return moment(fecha, 'DD/MM/YYYY').isValid() ? console.log("Fecha valida") : console.log("Fecha no valida")
+}
+//validarFecha("29/02/2022")
 
-//Ejercicio 3 JS (no considere bisiestos)
+
+
+//Ejercicio 3 JS 
 function tuEdad(nacimiento){
     let anioActual = new Date().getFullYear();
     let mesActual = new Date().getMonth() + 1;
@@ -61,27 +72,18 @@ function tuEdad(nacimiento){
     let difMes = mesActual - parseInt(nacimiento[5] + nacimiento[6]);
     let difDia = diaActual - parseInt(nacimiento[8] + nacimiento[9])
     let edad = difAños;
-    edad = (difAños != 0 && difMes < 0)  ?  edad-1 : edad;
-    edad = (difAños != 0 && difMes == 0) && difDia > 0  ?  edad-1 : edad;
+    edad = (difMes < 0)  ?  edad-1 : edad;
+    edad = difMes == 0  && difDia < 0  ?  edad-1 : edad;
     return console.log(`Su edad es: ${edad} años`, difAños, difMes, difDia)
 
 }
 
-tuEdad("2020-05-01")
-/*
-function calculate_age(birth_month, birth_day, birth_year) {
-        today_date = new Date();
-        today_year = today_date.getFullYear();
-        today_month = today_date.getMonth();
-        today_day = today_date.getDate();
-        age = today_year - birth_year;
-      
-        if (today_month < (birth_month - 1)) {
-          age--;
-        }
-        if (((birth_month - 1) == today_month) && (today_day < birth_day)) {
-          age--;
-        }
-        console.log(age);
-      }
- */
+//tuEdad("2021-06-03")
+
+//Ejercicio 3 moment
+let fechaPersona = "2021-06-01"
+console.log(moment(fechaPersona, "YYYY-MM-DD").month(0).from(moment().month(0)))
+var years = moment().diff(fechaPersona, 'years');
+var days = moment().diff(fechaPersona, 'days');
+console.log(years, days)
+
