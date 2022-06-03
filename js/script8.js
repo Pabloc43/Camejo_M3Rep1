@@ -5,21 +5,22 @@ $(function() {
     let parrafos = $('p');
 
     for(let i = 0; i < $('p').length; i++){
-        $('p')[i].mouseenter(function() {
-            $('p')[i].css({
+        $(`#p${i+1}`).on("mouseenter", function() {
+            $(`#p${i+1}`).css({
                 "color" : "red",
                 "font-size" : "20px",
                 "border" : "green 2px solid"                
             })
         });
-        $('p')[i].mouseleave(function() {
-            $('p')[i].css({
+        $(`#p${i+1}`).on("mouseleave",function() {
+        $(`#p${i+1}`).css({
                 "color" : "black",
                 "font-size" : "16px",
                 "border" : "none"                
             })
         });
-    }    
+    }   
+    console.log($('p'));
 
 
     //Actividad 2
