@@ -81,9 +81,11 @@ function tuEdad(nacimiento){
 //tuEdad("2021-06-03")
 
 //Ejercicio 3 moment
-let fechaPersona = "2021-06-01"
+function edadMoment(fechaPersona){
 console.log(moment(fechaPersona, "YYYY-MM-DD").month(0).from(moment().month(0)))
-var years = moment().diff(fechaPersona, 'years');
-var days = moment().diff(fechaPersona, 'days');
-console.log(years, days)
+var anio = moment().diff(fechaPersona, 'years');
+var dias = moment().diff(fechaPersona, 'days');
+console.log(anio)
+}
 
+edadMoment("2021-06-01")
